@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
+import 'package:super_comics_app/dao/hero_dao.dart';
 import 'package:super_comics_app/models/superhero.dart' as sh;
 
 
@@ -19,7 +20,7 @@ class _SuperheroCardState extends State<SuperheroCard> {
   bool _isFavorite = false;
 
   initialize() async {
-    //_isFavorite = await SuperheroDao().isFavorite(widget.superhero);
+    _isFavorite = await SuperheroDao().isFavorite(widget.superhero);
 
     if (mounted) {
       setState(() {
@@ -38,12 +39,12 @@ class _SuperheroCardState extends State<SuperheroCard> {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Image.network(widget.superhero.image),
-        title: Text(widget.superhero.name),
+        leading: Image.network(widget.superhero.image), //imagen
+        title: Text(widget.superhero.name), //nombre
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Intelligence: ${widget.superhero.intelligence}')
+            Text('Intelligence: ${widget.superhero.intelligence}') //inteligencia
           ],
         ),
         trailing: IconButton(
@@ -55,9 +56,9 @@ class _SuperheroCardState extends State<SuperheroCard> {
               if (mounted) {
                 setState(() {
                   _isFavorite = !_isFavorite;
-                  //_isFavorite
-                      //? SuperheroDao().insert(widget.superhero)
-                      //: SuperheroDao().delete(widget.superhero);
+                  _isFavorite
+                      ? SuperheroDao().insert(widget.superhero)
+                      : SuperheroDao().delete(widget.superhero);
                 });
               }
             }),

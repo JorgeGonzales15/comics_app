@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_comics_app/home_screens/favorites_screen.dart';
 import 'package:super_comics_app/home_screens/superhero_search_screen.dart';
 
 
@@ -34,7 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton(
               onPressed: () {
                 // Acción para el segundo botón
-                
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FavoritesScreen()));
               },
               child: const Text('Button 2'),
             ),

@@ -12,7 +12,7 @@ class SuperheroList extends StatelessWidget {
     return ListView.builder(
         itemCount: superheroes.length,
         itemBuilder: (context, index) {
-          return SuperheroCard(superhero: superheroes[index]);
+          return SuperheroCard(superhero: superheroes[index]); //uso de superhero_card
         });
   }
 }

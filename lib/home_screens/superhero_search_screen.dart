@@ -49,7 +49,7 @@ class _SuperheroesScreenState extends State<SuperheroesScreen> {
       body: Center(
         child: Column(
           children: [
-            CustomSearchBar(
+            CustomSearchBar( //uso de searchbar
               callback: (value) {
                 fetchHeroes(value);
               },
@@ -57,7 +57,7 @@ class _SuperheroesScreenState extends State<SuperheroesScreen> {
             const SizedBox(height: 20),
             Text('Number of results: $heroesCount'),
             const SizedBox(height: 15),
-            Expanded(child: SuperheroList(superheroes: superheroes))
+            Expanded(child: SuperheroList(superheroes: superheroes)) //uso de superhero_list
           ],
         ),
       ),

@@ -2,7 +2,7 @@ class SuperHero {
   final String id;
   final String name;
   final String image;
-  final String intelligence;
+  final String? intelligence;
 
 
   const SuperHero(
@@ -20,4 +20,26 @@ class SuperHero {
   Map<String, dynamic> toMap() {
     return {"id": id, "name": name, "image": image, "intelligence": intelligence};
   }
+
+}
+
+class FavoriteHero {
+  final String id;
+  final String name;
+  final String path;
+  final String? intelligence;
+
+  const FavoriteHero(
+      {required this.id,
+      required this.name,
+      required this.path,
+      required this.intelligence});
+
+  FavoriteHero.fromMap(Map<String, dynamic> map)
+      : id = map["id"],
+        name = map["name"],
+        path = map["image"],
+        intelligence = map["intelligence"];
+
+
 }
